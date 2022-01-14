@@ -1,0 +1,72 @@
+<div class="row change" *ngIf="change">
+    <div class="col-12 ">
+      Les changements ont bien été enregistrées.
+    </div>
+  </div>
+  <div *ngIf="galaxie">
+    <div class="row mb-4">
+      <div class="col-12 col-sm-6">
+        <div class="form-group">
+          <label>Nom de la galaxie </label><br>
+          <input type="text" class="form-control" [(ngModel)]="galaxie.nom">
+        </div>
+      </div>
+      <div class="col-12 col-sm-6">
+        <div class="form-group">
+          <label>Est-elle encore active ?</label><br>
+          <!-- <input type="text" class="form-control" [(ngModel)]="galaxie.active"> -->
+          <select class="form-control" [(ngModel)]="galaxie.active">
+            <option value="true">Oui</option>
+            <option value="false">Non</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    
+     <div class="row mb-4">
+      <div class="col-12 col-sm-6">
+        <div class="form-group">
+          <label>Quelle est sa morphologie ?</label><br>
+          <input type="text" class="form-control" [(ngModel)]="galaxie.morphologie">
+        </div>
+      </div>
+      <div class="col-12 col-sm-6">
+        <div class="form-group">
+          <label>A-t-elle une morphologie particulière ? Si oui laquel ?</label><br>
+          <input type="text" class="form-control" [(ngModel)]="galaxie.morphologie_particuliere">
+        </div>
+      </div>
+    </div>
+   
+    <div class="row mb-4">
+      <div class="col-12 col-sm-6">
+        <div class="form-group">
+          <label>Quelle taille fait-elle ? </label><br>
+          <input type="text" class="form-control" [(ngModel)]="galaxie.taille">
+        </div>
+      </div>
+      <div class="col-12 col-sm-6">
+        <div class="form-group">
+          <label> Un lien vers une image ? </label><br>
+          <input type="text" class="form-control" [(ngModel)]="galaxie.picture">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <label>Une petite description à partager ?</label><br>
+          <textarea name="synopsis" cols="30" rows="10" class="form-control" [(ngModel)]="galaxie.description"></textarea>
+        </div>
+      </div>
+    </div> 
+    
+    <div class="row">
+      <div class="col-12">
+        <div class="submit">
+          <button class="btn btn-outline-success" (click)="modif()">Envoyer</button>
+        </div>
+      </div>
+    </div>
+  </div>

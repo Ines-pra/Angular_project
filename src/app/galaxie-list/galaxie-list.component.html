@@ -1,0 +1,15 @@
+<ul class="list-group ">
+
+    <app-galaxie *ngFor="let galaxie of galaxies; let i = index;"
+    [galaxieName]="galaxie.nom"
+    [galaxieActive]="galaxie.active"
+    [galaxieActiveString]="galaxie.active"
+    [morphologie]="galaxie.morphologie"
+    [morphologie_particuliere]="galaxie.morphologie_particuliere"
+    [taille]="galaxie.taille"
+    [description]="galaxie.description"
+    [picture]="galaxie.picture"
+    [index]="i"
+    [id]="galaxie.id"></app-galaxie>
+
+</ul>
