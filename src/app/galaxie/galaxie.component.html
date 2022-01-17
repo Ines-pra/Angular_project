@@ -1,18 +1,106 @@
-<div class="row justify-content-center align-items-center w-100 m-0">
+<div style="min-height: 100%;" class="bg-dark mb-4">
+  
+<div *ngIf="AffiImage == false" class="row justify-content-center align-items-center w-100 m-0">
   <div>
-    <li [ngClass]="{'list-group-item':true}" class="mt-3 container p-3 shadow rounded">
+    <li [ngClass]="{'list-group-item':true}" *ngIf="galaxieActive == 'true'" class="active bg-white text-black mt-3 container p-3 rounded">
       <div class="row">
-        <div class="col-8">
+        <div class="col-10">
           <h3> {{ galaxieName }} </h3>
           <div class="row">
             <div class="col-12 col-sm-6">
               <p *ngIf="taille != ''"><strong> Taille : </strong>{{ taille }} </p>
               <p *ngIf="taille == ''"><strong> Taille : </strong>Non recensée </p>
+              <p> <strong> Cette galaxie est toujours active </strong>  </p>
             </div>
             <div class="col-12 col-sm-6">
               <p *ngIf="morphologie != ''"> <strong> Morphologie : </strong> {{ morphologie }} </p>
               <p *ngIf="morphologie == ''"> <strong> Morphologie : </strong> Non recensée </p>
-              <p *ngIf="morphologie_particuliere != ''"> <strong> Morphologie particulière : </strong> {{ morphologie_particuliere }} </p>
+              <p *ngIf="morphologie_particuliere != ''"> <strong> Morphologie particulière : </strong>
+                {{ morphologie_particuliere }} </p>
+              <p *ngIf="morphologie_particuliere == ''"> <strong> Morphologie particulière : </strong> Non recensée </p>
+            </div>
+            <div class="col-8">
+              <p> <strong> Description : </strong> </p>
+              <div class="text-justify">
+                <p *ngIf="description != ''" style="text-align: justify;"> {{ description }} </p>
+                <p *ngIf="description == ''"> <strong> Description : </strong> Pas de description recensée </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-2 mt-3">
+          <div>
+            <button class="btn btn-secondary mb-2" (click)="affiImage()"> Image </button>
+          </div>
+          <div>
+            <a [routerLink]="['/modif',id]" class="btn btn-outline-dark mb-2"> Modifier </a>
+          </div>
+          <div>
+            <button class="btn btn-danger mb-2" (click)="supp()"> Supprimer </button>
+          </div>
+        </div>
+      </div>
+
+    </li>
+    <li [ngClass]="{'list-group-item':true}" *ngIf="galaxieActive == 'false'" class="nonactive bg-white text-black mt-3 container p-3 rounded">
+      <div class="row">
+        <div class="col-10">
+          <h3> {{ galaxieName }} </h3>
+          <div class="row">
+            <div class="col-12 col-sm-6">
+              <p *ngIf="taille != ''"><strong> Taille : </strong>{{ taille }} </p>
+              <p *ngIf="taille == ''"><strong> Taille : </strong>Non recensée </p>
+              <p> <strong> Cette galaxie n'est maheureusement plus active </strong>  </p>
+            </div>
+            <div class="col-12 col-sm-6">
+              <p *ngIf="morphologie != ''"> <strong> Morphologie : </strong> {{ morphologie }} </p>
+              <p *ngIf="morphologie == ''"> <strong> Morphologie : </strong> Non recensée </p>
+              <p *ngIf="morphologie_particuliere != ''"> <strong> Morphologie particulière : </strong>
+                {{ morphologie_particuliere }} </p>
+              <p *ngIf="morphologie_particuliere == ''"> <strong> Morphologie particulière : </strong> Non recensée </p>
+            </div>
+            <div class="col-8">
+              <p> <strong> Description : </strong> </p>
+              <div class="text-justify">
+                <p *ngIf="description != ''" style="text-align: justify;"> {{ description }} </p>
+                <p *ngIf="description == ''"> <strong> Description : </strong> Pas de description recensée </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-2 mt-3">
+          <div>
+            <button class="btn btn-secondary mb-2" (click)="affiImage()"> Image </button>
+          </div>
+          <div>
+            <a [routerLink]="['/modif',id]" class="btn btn-outline-dark mb-2"> Modifier </a>
+          </div>
+          <div>
+            <button class="btn btn-danger mb-2" (click)="supp()"> Supprimer </button>
+          </div>
+        </div>
+      </div>
+
+    </li>
+  </div>
+</div>
+<div *ngIf="AffiImage == true" class="row justify-content-center align-items-center w-100 m-0">
+  <div>
+    <li [ngClass]="{'list-group-item':true}" *ngIf="galaxieActive == 'true'" class="active bg-white text-black mt-3 container p-3 rounded">
+      <div class="row">
+        <div class="col-6">
+          <h3> {{ galaxieName }} </h3>
+          <div class="row">
+            <div class="col-12 col-sm-6">
+              <p *ngIf="taille != ''"><strong> Taille : </strong>{{ taille }} </p>
+              <p *ngIf="taille == ''"><strong> Taille : </strong>Non recensée </p>
+              <p> <strong> Cette galaxie est toujours active </strong>  </p>
+            </div>
+            <div class="col-12 col-sm-6">
+              <p *ngIf="morphologie != ''"> <strong> Morphologie : </strong> {{ morphologie }} </p>
+              <p *ngIf="morphologie == ''"> <strong> Morphologie : </strong> Non recensée </p>
+              <p *ngIf="morphologie_particuliere != ''"> <strong> Morphologie particulière : </strong>
+                {{ morphologie_particuliere }} </p>
               <p *ngIf="morphologie_particuliere == ''"> <strong> Morphologie particulière : </strong> Non recensée </p>
             </div>
             <div class="col-12">
@@ -22,16 +110,69 @@
                 <p *ngIf="description == ''"> <strong> Description : </strong> Pas de description recensée </p>
               </div>
             </div>
+            <div class="col-2 mt-3">
+              <div>
+                <button class="btn btn-secondary mb-2" (click)="affiImage()"> Image </button>
+              </div>
+              <div>
+                <a [routerLink]="['/modif',id]" class="btn btn-outline-dark mb-2"> Modifier </a>
+              </div>
+              <div>
+                <button class="btn btn-danger mb-2" (click)="supp()"> Supprimer </button>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-4">
+        <div class="col-6">
           <img src="{{ picture }}" style="width: 100%;border-radius: 25px;">
         </div>
       </div>
-      <div class="col-2 mt-3">
-        <a [routerLink]="['/modif',id]" class="btn btn-outline-dark mb-2"> Modifier </a>
-        <button class="btn btn-danger mb-2" (click)="supp()"> Supprimer </button>
+
+    </li>
+    <li [ngClass]="{'list-group-item':true}" *ngIf="galaxieActive == 'false'" class="nonactive bg-white text-black mt-3 container p-3 rounded">
+      <div class="row">
+        <div class="col-6">
+          <h3> {{ galaxieName }} </h3>
+          <div class="row">
+            <div class="col-12 col-sm-6">
+              <p *ngIf="taille != ''"><strong> Taille : </strong>{{ taille }} </p>
+              <p *ngIf="taille == ''"><strong> Taille : </strong>Non recensée </p>
+              <p> <strong> Cette galaxie n'est maheureusement plus active </strong>  </p>
+            </div>
+            <div class="col-12 col-sm-6">
+              <p *ngIf="morphologie != ''"> <strong> Morphologie : </strong> {{ morphologie }} </p>
+              <p *ngIf="morphologie == ''"> <strong> Morphologie : </strong> Non recensée </p>
+              <p *ngIf="morphologie_particuliere != ''"> <strong> Morphologie particulière : </strong>
+                {{ morphologie_particuliere }} </p>
+              <p *ngIf="morphologie_particuliere == ''"> <strong> Morphologie particulière : </strong> Non recensée </p>
+            </div>
+            <div class="col-12">
+              <p> <strong> Description : </strong> </p>
+              <div class="text-justify">
+                <p *ngIf="description != ''" style="text-align: justify;"> {{ description }} </p>
+                <p *ngIf="description == ''"> <strong> Description : </strong> Pas de description recensée </p>
+              </div>
+            </div>
+            <div class="col-2 mt-3">
+              <div>
+                <button class="btn btn-secondary mb-2" (click)="affiImage()"> Image </button>
+              </div>
+              <div>
+                <a [routerLink]="['/modif',id]" class="btn btn-outline-dark mb-2"> Modifier </a>
+              </div>
+              <div>
+                <button class="btn btn-danger mb-2" (click)="supp()"> Supprimer </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <img src="{{ picture }}" style="width: 100%;border-radius: 25px;">
+        </div>
       </div>
+
     </li>
   </div>
+</div>
+
 </div>

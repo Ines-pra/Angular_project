@@ -21,6 +21,8 @@ export class GalaxieComponent implements OnInit {
 
   @Input() index?: number;
   @Input() id?: number;
+
+  AffiImage : boolean = false;
   
   constructor(
     private Galaxie: GalaxieService
@@ -33,16 +35,21 @@ export class GalaxieComponent implements OnInit {
     return this.galaxieActive;
   }
 
-  onWatch(){
-    console.log('Vous avez cliqué sur la '+this.galaxieName );
-  }
+  // onWatch(){
+  //   console.log('Vous avez cliqué sur la '+this.galaxieName );
+  // }
 
-  changeColor(){
-    return this.galaxieActive ? 'green' : 'red';
-  }
+  // changeColor(){
+  //   return this.galaxieActive ? 'green' : 'red';
+  // }
 
   supp() : void{
     this.Galaxie.delete(this.id);
+   }
+
+   affiImage(){
+     if (this.AffiImage == true) return this.AffiImage = false;
+     else return this.AffiImage = true;
    }
 
 
