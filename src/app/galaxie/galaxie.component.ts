@@ -11,7 +11,7 @@ export class GalaxieComponent implements OnInit {
 
   title = "Universe";
   @Input() galaxieName?: string;
-  @Input() galaxieActive?: boolean;
+  @Input() galaxieActive?: string;
   @Input() galaxieActiveString?: string;
   @Input() morphologie?: string;
   @Input() morphologie_particuliere?: string;

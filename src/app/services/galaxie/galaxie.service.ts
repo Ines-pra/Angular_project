@@ -14,24 +14,6 @@ export class GalaxieService {
   galaxies?: any;
   galaxieSubject = new Subject<any[]>();
 
-  // galaxies = [
-  //   {
-  //     id : 1,
-  //     name : "Voie Lactée",
-  //     active : true,
-  //   },
-  //   {
-  //     id : 2,
-  //     name : "XMM-2599",
-  //     active : false
-  //   },
-  //   {
-  //     id : 3,
-  //     name : "Galaxie test",
-  //     active : false
-  //   }
-  // ];
-
   constructor(
     private db : AngularFirestore
   ) { 

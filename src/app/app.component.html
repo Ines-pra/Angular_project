@@ -1,34 +1,25 @@
 <!-- navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-black">
+<nav class="navbar navbar-expand-lg navbar-dark bg-black" style="height:5%">
   <div class="container-fluid">
-      <a class="navbar-brand" routerLink="">Universe</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
+    <a class="navbar-brand" routerLink="">Universe</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <ul class="navbar-nav">
-              <li class="nav-item" routerLinkActive="active">
-                  <a class="nav-link" routerLink="galaxie-list">Galaxies</a>
-              </li>
-              <li class="nav-item" routerLinkActive="active">
-                  <a class="nav-link" routerLink="new">Nouvelle Galaxie</a>
-              </li>
-          </ul>
-      </div>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <ul class="navbar-nav">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="galaxie-list">Galaxies</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="new">Nouvelle Galaxie</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
 
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <!-- <app-galaxie *ngFor=" let galaxie of galaxies" [galaxieName]="galaxie.name" [galaxieActive]="galaxie.active"></app-galaxie> -->
-      <!-- <app-galaxie *ngFor="let galaxie of galaxies; let i = index;"
-      [galaxieName]="galaxie.name"
-      [galaxieActive]="galaxie.active"
-      [index]="i"></app-galaxie> -->
-      <router-outlet></router-outlet>
-    </div>
-  </div>
+<div style="height: 95%;" class="bg-dark text-white">
+  <router-outlet></router-outlet>
 </div>
